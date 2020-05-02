@@ -1,0 +1,26 @@
+{
+    "mongoUrl": "cluster0-nwlj8.mongodb.net/SyL?retryWrites=true&w=majority",
+    "mongoUser": "app",
+    "mongoPass":"",
+
+
+    "mongoOptions":  {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true,
+        "server": {
+          "poolSize": 50000,
+          "socketOptions": {
+            "keepAlive": 300000,
+            "connectTimeoutMS": 300000,
+            "autoReconnect": true
+          }
+        },
+        "replset": {
+          "socketOptions": {
+            "keepAlive": 300000,
+            "connectTimeoutMS": 300000,
+            "socketTimeoutMS": 600000
+          }
+        }
+      }
+}
