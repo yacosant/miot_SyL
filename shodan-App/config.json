@@ -22,7 +22,5 @@
             "socketTimeoutMS": 600000
           }
         }
-      },
-
-    "SHODAN-API-KEY": ""
+      }
 }
