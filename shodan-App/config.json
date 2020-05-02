@@ -1,7 +1,7 @@
 {
     "mongoUrl": "cluster0-nwlj8.mongodb.net/SyL?retryWrites=true&w=majority",
     "mongoUser": "app",
-    "mongoPass":"",
+    "mongoPass":"tCCEcemOGgBn79vP",
 
 
     "mongoOptions":  {
@@ -22,5 +22,7 @@
             "socketTimeoutMS": 600000
           }
         }
-      }
+      },
+
+    "SHODAN-API-KEY": ""
 }
