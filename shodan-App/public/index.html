@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/public/index.html">
+    <!-- includes -->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="assets/css/styles.css" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script type = "text/javascript" src="assets/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="controller.js"></script>
+    <script type = "text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type = "text/javascript" src="assets/js/scripts.js"></script>
+
+    <meta lang="es" charset="utf-8" />
+    <title>Trabajo SyL</title>
+  </head>
+  <body>
+    <!-- Cabecera -->
+    <header>
+      <div id="header-loaded"></div>
+    </header>
+
+    <main>
+      <div class="cards" id="main_cards">
+        <div class="row">
+          <div class="col s4">
+            <div class=" max">
+              <div class="card-image responsive-img">
+                <img class="img-list"src="assets/img/list-alt-solid.svg">
+              </div>
+
+              <div class="card-action center-align">
+                <br>
+                Listar sitios obtenidos
+              </div>
+            </div>
+          </div>
+
+          <div class="col s4 ">
+            <div class="max">
+              <div class="card-image responsive-img">
+                <a href="/list">
+                <img class="icon img-list"src="assets/img/cloud-download-alt-solid.svg">
+                </a>
+              </div>
+              
+
+              <div class="card-action center-align">
+                <br>
+                <H6>Obtener información desde Shodan</H6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s4">
+            <div class=" max">
+              <div class="card-image responsive-img">
+                <img class="img-list"src="assets/img/play-circle-regular.svg">
+              </div>
+
+              <div class="card-action center-align">
+                <br>
+                Lanzar comprobación de routers vulnerables
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </main>
+    <!-- footer -->
+    <footer class="page-footer black darken-1">
+      <div id="footer-loaded"></div>
+    </footer>
+  </body>
+</html>
