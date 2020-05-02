@@ -1,7 +1,7 @@
 {
     "mongoUrl": "cluster0-nwlj8.mongodb.net/SyL?retryWrites=true&w=majority",
     "mongoUser": "app",
-    "mongoPass":"tCCEcemOGgBn79vP",
+    "mongoPass":"",
 
 
     "mongoOptions":  {
