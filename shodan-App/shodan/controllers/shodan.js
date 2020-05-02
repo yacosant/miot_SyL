@@ -34,7 +34,7 @@ exports.get = function (req, res) {
           console.log('Search');
           //console.log(util.inspect(res, { depth: 6 }));
           //res.json(util.inspect(res1, { depth: 6 }));
-          res.json(res1);
+          
           tam= res1.matches.length;
           var array=[];
           for(var i=0; i<tam; i++){
@@ -48,6 +48,7 @@ exports.get = function (req, res) {
             toBD.vulnerable = false;
             array.push(toBD);
           }
+          res.json(array);
           console.log('Formateo Hecho');
           ObjectData.insertMany(array, function(error, docs) {});
           console.log('Array insertado en Mongo');
