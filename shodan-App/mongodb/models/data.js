@@ -5,6 +5,7 @@ var data_schema =  mongoose.Schema({
   ip_str: String,
   port : String,
   isp: String,
+  pais: String,
   timestamp_shodan: Date,
   tried: Boolean,
   vulnerable: Boolean

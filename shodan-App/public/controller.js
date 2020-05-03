@@ -56,6 +56,11 @@ createRow = function(i){
     row.appendChild(celda);
 
     celda = document.createElement("td");
+    textoCelda = document.createTextNode(devices[i].pais);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    celda = document.createElement("td");
     textoCelda = document.createTextNode(devices[i].timestamp_shodan);
     celda.appendChild(textoCelda);
     row.appendChild(celda);
@@ -75,6 +80,7 @@ createRow = function(i){
 }
 
 function loadList() {
+  putLoadder();
   $.get("http://"+location.host+"/data/all", function (data, status) {
     devices = data;
   
@@ -83,12 +89,29 @@ function loadList() {
   for (var i = 0;  i<devices.length; i++) {
         bodyTabla.appendChild(createRow(i));
   }
+  removeLoader();
  });
 }
 
+function putLoadder(){
+  $('#centro').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+}
+
+function removeLoader(){
+  $( "#loadingDiv" ).fadeOut(500, function() {
+    // fadeOut complete. Remove the loading div
+    $( "#loadingDiv" ).remove(); //makes page more lightweight 
+});  
+}
+
 function postGetDevices(){
+  putLoadder();
   $.post("/get",{},  
     function(data, status){
+      removeLoader();
+      text = '<h6> Se han recuperado <h4>'+data.length +'</h4> dispositivos</h6>'
+      $('#result').append(text);
+     
       console.log("Data: " + data + "\nStatus: " + status);
   });
 }
