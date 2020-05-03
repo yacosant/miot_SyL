@@ -3,6 +3,6 @@
 var ControllerShodan = require ('./controllers/shodan.js');
 
 module.exports = function(app) {
-	app.get('/get', ControllerShodan.get);
+	app.post('/get', ControllerShodan.get);
 	
 }

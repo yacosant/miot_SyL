@@ -21,24 +21,14 @@
   </header>
   <main>
     <div class="form-head">
-      <h4 class="center-align"> Listado de dispositivos </h4>
+      <h4 class="center-align"> Obtener lista de dispositivos </h4>
     </div>
-    
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">IP</th>
-          <th scope="col">Puerto</th>
-          <th scope="col">ISP</th>
-          <th scope="col">Timestamp</th>
-          <th scope="col">Intentado</th>
-          <th scope="col">Vulnerable</th>
-        </tr>
-      </thead>
-      <tbody id="tablaData">
-      </tbody>
-    </table>
+    <form action="/get" method="POST">
+      <input type="text" name="newID" placeholder="Enter your ID"/>
+      <input type="submit" value="Click here to submit the form"/>
+  </form>
+
+    Cargando
   </main>
 
   <!-- footer -->
@@ -52,8 +42,9 @@
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
-      loadList();
+      postGetDevices();
     });
+
   </script>
   <script type="text/javascript" src="../controller.js"></script>
 </body>

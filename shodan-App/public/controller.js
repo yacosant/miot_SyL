@@ -86,4 +86,9 @@ function loadList() {
  });
 }
 
-loadList();
+function postGetDevices(){
+  $.post("/get",{},  
+    function(data, status){
+      console.log("Data: " + data + "\nStatus: " + status);
+  });
+}

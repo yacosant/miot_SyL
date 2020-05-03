@@ -14,7 +14,7 @@ exports.getAll = function (req, res) {
         if (err)
             res.send(err)
         res.json(config);
-        console.log("loading persons ");
+        console.log("loading devices ");
     })
 }
 
@@ -23,7 +23,6 @@ exports.getAll = function (req, res) {
 
 exports.get = function (req, res) {
     const searchOpts = {
-        fields: 'ip_str,port,org,hostnames',
         facets: 'port:100,country:100',
         minify: true,
       };
@@ -32,8 +31,6 @@ exports.get = function (req, res) {
         .search('luci country:ES', config.SHODANAPIKEY, searchOpts)
         .then(res1 => {
           console.log('Search');
-          //console.log(util.inspect(res, { depth: 6 }));
-          //res.json(util.inspect(res1, { depth: 6 }));
           
           tam= res1.matches.length;
           var array=[];
@@ -59,14 +56,4 @@ exports.get = function (req, res) {
         });
 }
 
-exports.create = function (req, res) {
-    console.log("Persona registrada");
-    var person = new config(req.body);
-
-    person.save(function (err) {
-        if (err) throw err;
-    })
-
-    res.json({ message: 'Person Created!' });
-}
 
