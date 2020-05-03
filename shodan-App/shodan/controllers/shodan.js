@@ -43,7 +43,7 @@ exports.get = function (req, res) {
             toBD.ip_str= res1.matches[i].ip_str;
             toBD.port= res1.matches[i].port;
             toBD.isp= res1.matches[i].isp;
-            toBD.timestamp_shodan= res1.matches[i].timestamp_shodan;
+            toBD.timestamp_shodan= res1.matches[i].timestamp;
             toBD.tried = false;
             toBD.vulnerable = false;
             array.push(toBD);

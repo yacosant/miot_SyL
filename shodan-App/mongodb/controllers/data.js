@@ -9,7 +9,7 @@ exports.getAll = function (req, res) {
         if (err)
             res.send(err)
         res.json(config);
-        console.log("loading persons ");
+        console.log("loading devices ");
     })
 }
 
@@ -26,19 +26,6 @@ exports.get = function (req, res) {
     })
 }
 
-// no creo que se debiese poder modificar una denuncia.
-exports.update = function (req, res) {
-}
-
-exports.delete = function (req, res) {
-    config.remove({
-        "_id": req.params.id
-    }, function (err, config) {
-        if (err)
-            res.send(err)
-        console.log("eliminado");
-    })
-}
 
 exports.create = function (req, res) {
     console.log("Data registrada");

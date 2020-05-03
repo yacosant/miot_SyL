@@ -35,7 +35,7 @@ db.once("open", function() {
   console.log("Successfully connected to mongodb");
   app.emit("dbopen");
 });
-//require("./mongodb/routes.js")(app);
+require("./mongodb/routes.js")(app);
 require("./shodan/routes.js")(app);
 //******************END MONGODB****************//
 
