@@ -56,6 +56,10 @@ app.get("/list", function(req, res){
   res.sendFile(__dirname + "/public/site/list-data.html");
 });
 
+app.get("/get", function(req, res){
+  res.sendFile(__dirname + "/public/site/get-shodan.html");
+});
+
 //POSTs
 app.post("*", function (req, res) {});
 
