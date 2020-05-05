@@ -115,3 +115,15 @@ function postGetDevices(){
       console.log("Data: " + data + "\nStatus: " + status);
   });
 }
+
+function postGetVulnerables(){
+  putLoadder();
+  $.post("/play",{},  
+    function(data, status){
+      removeLoader();
+      text = '<h6> Se han recuperado <h4>'+data.length +'</h4> dispositivos vulnerables</h6>'
+      $('#result').append(text);
+     
+      console.log("Vulnerables: " + data + "\nStatus: " + status);
+  });
+}

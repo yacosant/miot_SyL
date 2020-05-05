@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href = "/public/site/play.html">
+    <!-- includes -->
+    <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../assets/css/styles.css" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
+
+    <meta lang="es" charset="utf-8" />
+    <title>SyL - Lista dispositivos</title>
+</head>
+<body>
+  <header>
+    <div id="header-loaded"></div>
+  </header>
+  <main>
+    <div class="form-head">
+      <h4 class="center-align"> Obtener lista de vulnerables </h4>
+    </div>
+    <div id='centro'></div>
+    <div class="center-align">
+      <h6 id='result' class="center-align"></h6>
+
+      <a href="/list" class="center-align black btn btn-primary btn-lg active" role="button" aria-pressed="true">Ir a listado completo</a>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer class="page-footer  darken-1">
+    <div id="footer-loaded"></div>
+  </footer>
+  <!-- Scripts -->
+  <script>
+    $( document ).ready(function() {
+      $("#header-loaded").load("header.html");
+      $("#footer-loaded").load("footer.html");
+      $('select').formSelect();
+      $('.modal').modal();
+      postGetVulnerables();
+    });
+
+  </script>
+  <script type="text/javascript" src="../controller.js"></script>
+</body>
+</html>
