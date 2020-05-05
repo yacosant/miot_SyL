@@ -60,6 +60,10 @@ app.get("/get", function(req, res){
   res.sendFile(__dirname + "/public/site/get-shodan.html");
 });
 
+app.get("/play", function(req, res){
+  res.sendFile(__dirname + "/public/site/play.html");
+});
+
 //POSTs
 app.post("*", function (req, res) {});
 
