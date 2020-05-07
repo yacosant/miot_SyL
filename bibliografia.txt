@@ -1,0 +1,52 @@
+fuentes
+
+
+shodan
+https://github.com/jesusprubio/shodan-client
+https://cli.shodan.io/
+https://developer.shodan.io/api
+https://danielmiessler.com/study/shodan/
+https://null-byte.wonderhowto.com/how-to/find-vulnerable-webcams-across-globe-using-shodan-0154830/
+??? https://null-byte.wonderhowto.com/how-to/hack-like-pro-find-any-routers-web-interface-using-shodan-0154660/ ???
+
+
+
+	
+	uso https://developer.shodan.io/dashboard
+	https://maps.shodan.io/#40.12009038025332/-6.049804911017418/6/satellite/country:ES%20os:%22playstation%204%22
+	https://maps.shodan.io/#39.56194163950174/-5.083008036017419/7/satellite/luci%20country:ES
+	https://www.shodan.io/search?query=netflix
+	https://www.shodan.io/search?query=luci+country%3AES&page=3
+
+
+placa
+https://es.rs-online.com/web/p/products/1253306/
+
+
+scrapping
+https://itnext.io/scraping-with-nodejs-and-cheerio-d4d34e2cf
+https://levelup.gitconnected.com/web-scraping-with-node-js-c93dcf76fe2b
+https://github.com/assaf/zombie
+http://zombie.js.org/
+https://hub.packtpub.com/getting-started-zombiejs/
+
+	-tittle
+	https://books.google.es/books?id=a6sMBAAAQBAJ&pg=PA119&lpg=PA119&dq=zombie+browser+title&source=bl&ots=Y8DUtlu9zW&sig=ACfU3U2LAiuelx6L_rnJ8CBzxZG9naFUbg&hl=es&sa=X&ved=2ahUKEwitnYikt53pAhVRzRoKHTJvBDgQ6AEwAnoECAcQAQ#v=onepage&q=title&f=false
+	
+	-click no va
+	https://github.com/assaf/zombie/issues/1102
+	https://stackoverflow.com/questions/12092877/filling-log-in-form-with-zombie-in-node-js
+	
+	-cert
+	https://github.com/assaf/zombie/issues/605
+	https://stackoverflow.com/questions/7336814/problems-with-web-site-scraping-using-zombie-js
+	https://github.com/assaf/zombie/issues/1021
+
+https://stackoverflow.com/questions/20526757/how-to-send-post-request-from-express-js-to-another-server-java
+
+	-cert peticiones
+	https://stackoverflow.com/questions/20841242/node-js-https-get-via-proxy-generates-ssl3-get-record-wrong-version-number-error
+	https://stackoverflow.com/questions/20433287/node-js-request-cert-has-expired
+	
+
+	
