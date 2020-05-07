@@ -10,17 +10,8 @@ var querystring = require('querystring');
 const Browser = require('zombie');
 
 var ObjectData = require('../../mongodb/models/data.js');
+var ObjectVulnerable = require('../../mongodb/models/vulnerable.js');
 
-exports.getAll = function (req, res) {
-    config.find({
-        
-    }, function (err, config) {
-        if (err)
-            res.send(err)
-        res.json(config);
-        console.log("loading devices ");
-    })
-}
 
 //Pendiente de implementar busquedas concretas. 
 //->>comprobar si el _id se obtiene en los persons de getAll.
@@ -62,64 +53,79 @@ exports.get = function (req, res) {
 }
 
 
-exports.play = function (req1, res1) {
+checkURL = function (ip, port, user, pass){
 
-
-  // We're going to make requests to http://example.com/signup
-  // Which will be routed to our test server localhost:3000
-  Browser.localhost('https://192.168.1.91/cgi-bin/luci', 80);
+  Browser.localhost('https://'+ip+'/cgi-bin/luci', port);
   const browser = new Browser();
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  browser.visit('https://192.168.1.91/cgi-bin/luci', function() {
-
-    /*if(browser.text('title')=="Error de privacidad"){
-      browser
-    .pressButton('#details-button').clickLink('#proceed-link');
-    }
-    document = browser.document;*/
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //Para poder acceder a https autofirmados
+  browser.visit('https://'+ip+'/cgi-bin/luci', function() {
 
     console.log(browser.html());
-    browser
-    //.fill('luci_username', 'root')
-    .fill('input[name=luci_password]', 'root');
+    browser.fill('input[name=luci_username]', user);
+    browser.fill('input[name=luci_password]', pass);
 
     browser.pressButton('Login', function() {
-    if(browser.text('title')=='myCi40 - Overview - LuCI') console.log('Dentro!');
-    
-    res1.json("'ok':'ok'");
+    if(browser.text('title')=='myCi40 - Overview - LuCI'){
+      console.log('Dentro! Ha accedido a '+ip);
+      return true;      
+    }    
+      return false;
     });
   });
 
- /*
-  describe('User visits signup page', function() {
-  
-    const browser = new Browser();
-  
-    before(function(done) {
-      browser.visit('/', done);
-    });
-  
-    describe('submits form', function() {
-  
-      before(function(done) {
-        browser
-          .fill('luci_username', 'root')
-          .fill('luci_password', 'root')
-          .pressButton('Login', done);
-      });
-  
-      it('should be successful', function() {
-        browser.assert.success();
-      });
-  
-      it('should see welcome page', function() {
-        browser.assert.text('title', 'myCi40 - Overview - LuCI');
-        res1.json("'ok':'ok'");
-      });
-    });
-    console.log("finish");
-  });*/
+}
 
+exports.play = function (req1, res1) {
+  var lista;//recuperar de bd
+  var cont=0;
+  var ip;// = '192.168.1.91';
+  var listaVuln= [];
+
+  ObjectData.find({'ip_str':'192.168.1.91', 'tried': 'false'
+  }, function (err, config) {
+      if (err)
+          res.send(err)
+      lista =config;
+      console.log("loaded devices for scan vulnerables");
+ 
+  
+   
+
+  for(i=0; i<lista.length; i++){
+
+    objeto = lista[i];
+    
+    console.log(objeto.ip_str);
+
+    //if(checkURL(objeto.ip_str, objeto.puerto,'root', 'root')){
+      cont++;
+      //actualizar dispostivo
+      objeto.vulnerable=true;
+      
+      //generar vulnerable
+      var vuln= {}
+      vuln.ip = objeto.ip;
+      vuln.ip_str = objeto.ip_str;
+      vuln.port = objeto.port;
+      vuln.id_device = objeto._id;
+      vuln.type = "";//objeto.type;
+      vuln.user = "user";
+      vuln.pass = "pass";
+      listaVuln.push(vuln);
+    //}
+
+    //objeto.tried=true;
+    objeto.save(function (err, objeto) {
+        if (err) return console.error(err);
+        console.log(objeto.ip_str + " actualizado");
+    });
+  }
+  ObjectVulnerable.insertMany(listaVuln);
+
+  console.log(lista[0]);
+  var respuesta = "'code':'ok', 'num':" +cont;
+  res1.json(respuesta);
+  });
 }
 
 
