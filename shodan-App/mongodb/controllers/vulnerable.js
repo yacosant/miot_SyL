@@ -9,7 +9,7 @@ exports.getAll = function (req, res) {
         if (err)
             res.send(err)
         res.json(config);
-        console.log("loading vulnerables ");
+        console.log("[VULNERABILIDAD]loading vulnerables ");
     })
 }
 

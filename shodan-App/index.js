@@ -65,6 +65,10 @@ app.get("/play", function(req, res){
   res.sendFile(__dirname + "/public/site/play.html");
 });
 
+app.get("/vul", function(req, res){
+  res.sendFile(__dirname + "/public/site/list-vulnerable.html");
+});
+
 //POSTs
 app.post("*", function (req, res) {});
 

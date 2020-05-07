@@ -22,6 +22,50 @@ function createBool(op){
     return celda;
 }
 
+createRowVul = function(i){
+  var row = document.createElement("tr");
+  row.id="row";
+  row.num=i;
+
+    var celda = document.createElement("th");
+    var textoCelda = document.createTextNode(i+1);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+
+    celda = document.createElement("td");
+    textoCelda = document.createElement('a');
+    textoCelda.href  = "http://"+vulnerables[i].ip_str +":"+ vulnerables[i].port;
+    textoCelda.target="_blank";
+
+    var a=document.createTextNode(vulnerables[i].ip_str);
+    textoCelda.appendChild(a);
+
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode(vulnerables[i].port);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode(vulnerables[i].type);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode(vulnerables[i].user);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode(vulnerables[i].pass);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
+    return row;
+}
 
 createRow = function(i){
   var row = document.createElement("tr");
@@ -93,6 +137,20 @@ function loadList() {
   
   for (var i = 0;  i<devices.length; i++) {
         bodyTabla.appendChild(createRow(i));
+  }
+  removeLoader();
+ });
+}
+
+function loadListVul(){
+  putLoadder();
+  $.get("http://"+location.host+"/vul/all", function (data, status) {
+    vulnerables = data;
+  
+  var bodyTabla = (document.getElementById('tablaData'));
+  
+  for (var i = 0;  i<vulnerables.length; i++) {
+        bodyTabla.appendChild(createRowVul(i));
   }
   removeLoader();
  });

@@ -95,7 +95,7 @@ exports.play = function (req1, res1) {
 
     objeto = lista[i];
     
-    console.log(objeto.ip_str);
+    console.log("[PLAY]"+objeto.ip_str); //debug
 
     //if(checkURL(objeto.ip_str, objeto.puerto,'root', 'root')){
       cont++;

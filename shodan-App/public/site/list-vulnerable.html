@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base href = "/public/site/list-data.html">
+    <base href = "/public/site/list-vulnerable.html">
     <!-- includes -->
     <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../assets/css/styles.css" media="screen,projection" />
@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
 
     <meta lang="es" charset="utf-8" />
-    <title>SyL - Lista dispositivos</title>
+    <title>SyL - Lista Vulnerables</title>
 </head>
 <body>
   <header>
@@ -22,7 +22,7 @@
   </header>
   <main>
     <div class="form-head">
-      <h4 class="center-align"> Listado de dispositivos </h4>
+      <h4 class="center-align"> Listado de dispositivos vulnerables </h4>
     </div>
     <div id='centro'></div>
     <table class="table">
@@ -31,12 +31,9 @@
           <th scope="col">#</th>
           <th scope="col">IP</th>
           <th scope="col">Puerto</th>
-          <th scope="col">ISP</th>
-          <th scope="col">País</th>
-          <th scope="col">Timestamp</th>
           <th scope="col">Tipo</th>
-          <th scope="col">Intentado</th>
-          <th scope="col">Vulnerable</th>
+          <th scope="col">User</th>
+          <th scope="col">Password</th>
         </tr>
       </thead>
       <tbody id="tablaData">
@@ -56,7 +53,7 @@
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
-      //loadList();
+      loadListVul();
     });
   </script>
   <script type="text/javascript" src="../controller.js"></script>
