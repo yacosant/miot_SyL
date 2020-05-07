@@ -28,7 +28,7 @@ exports.get = function (req, res) {
 
 
 exports.create = function (req, res) {
-    console.log("Vulnerable"+req.body.ip_str + "registrada");
+    console.log("[VULNERABILIDAD]"+req.body.ip_str + "registrada");
     var data = new config(req.body);
 
     data.save(function (err) {
@@ -39,7 +39,7 @@ exports.create = function (req, res) {
 }
 
 exports.createMany = function (req, res) {
-    console.log("Vulnerables registrados");
+    console.log("[VULNERABILIDAD]Registrados varios");
 
     config.insertMany(arr, function(error, docs) {});
 

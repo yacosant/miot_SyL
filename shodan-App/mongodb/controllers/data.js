@@ -26,9 +26,8 @@ exports.get = function (req, res) {
     })
 }
 
-
 exports.create = function (req, res) {
-    console.log("Data registrada");
+    console.log("[DATA]Registrada");
     var data = new config(req.body);
 
     data.save(function (err) {
@@ -39,10 +38,21 @@ exports.create = function (req, res) {
 }
 
 exports.createMany = function (req, res) {
-    console.log("Data registrada");
+    console.log("[DATA]Registrada");
 
     config.insertMany(arr, function(error, docs) {});
 
-    res.json({ message: 'Data Created!' });
+    res.json({ message: 'Data registrada!' });
 }
 
+exports.getTypes = function (req, res) {
+    var array =[];
+
+    console.log("[DATA]Recuperados types");
+
+    config.find().distinct('type', function (err, config) {
+        if (err)
+            res.send(err)
+        res.json(config);
+    })
+}

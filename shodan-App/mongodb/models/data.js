@@ -7,6 +7,7 @@ var data_schema =  mongoose.Schema({
   isp: String,
   pais: String,
   timestamp_shodan: Date,
+  type: String,
   tried: Boolean,
   vulnerable: Boolean
 }, {collection: 'data'});

@@ -27,12 +27,12 @@ mongoose.connect(
 //CATCH MONGODB EXCEPTION BEFORE CONNECTION
 var db = mongoose.connection;
 db.on("error", function(err) {
-  console.log("mongodb connection error: %s", err);
+  console.log("[MONGO]connection error: %s", err);
   mongoose.disconnect();
   process.exit();
 });
 db.once("open", function() {
-  console.log("Successfully connected to mongodb");
+  console.log("[MONGO]Successfully connected to mongodb");
   app.emit("dbopen");
 });
 require("./mongodb/routes.js")(app);
@@ -73,7 +73,7 @@ app.post("*", function (req, res) {});
 //*********************EJECUTION*****************//
 //***********************************************//
 http.Server(app).listen(80);
-console.log("Corriendo Servidor en: HTTP en 80.");
+console.log("[SERVER]Corriendo Servidor en: HTTP en 80.");
 
 
 //***********************************************//
