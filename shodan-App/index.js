@@ -36,13 +36,14 @@ db.once("open", function() {
   app.emit("dbopen");
 });
 require("./mongodb/routes.js")(app);
-require("./shodan/routes.js")(app);
+
 //******************END MONGODB****************//
 
 
 //***********************************************//
 //*********************ROUTING*******************//
 //***********************************************//
+require("./shodan/routes.js")(app);
 
 app.use("/public", express.static("public")); //->Ponemos un directorio virtual llamado 'public' en el que están todos nuestros contenidos
 //estaticos, los cuales se encuentran en app/public

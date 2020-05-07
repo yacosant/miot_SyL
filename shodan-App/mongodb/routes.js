@@ -6,5 +6,6 @@ module.exports = function(app) {
 
 	//Data//
 	app.get('/data/all', ControllerData.getAll);
+	app.get('/data/types', ControllerData.getTypes);
 
 }

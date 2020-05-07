@@ -65,6 +65,11 @@ createRow = function(i){
     celda.appendChild(textoCelda);
     row.appendChild(celda);
 
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode(devices[i].type);
+    celda.appendChild(textoCelda);
+    row.appendChild(celda);
+
     celda = createBool(devices[i].tried);
     row.appendChild(celda);
 

@@ -18,6 +18,7 @@
 <body>
   <header>
     <div id="header-loaded"></div>
+    <div id="nav"></div>
   </header>
   <main>
     <div class="form-head">
@@ -33,6 +34,7 @@
           <th scope="col">ISP</th>
           <th scope="col">País</th>
           <th scope="col">Timestamp</th>
+          <th scope="col">Tipo</th>
           <th scope="col">Intentado</th>
           <th scope="col">Vulnerable</th>
         </tr>
@@ -50,6 +52,7 @@
   <script>
     $( document ).ready(function() {
       $("#header-loaded").load("header.html");
+      $("#nav").load("nav.html");
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
