@@ -125,6 +125,9 @@ createRow = function(i){
     
     row.appendChild(celda);
 
+    celda = createBool(devices[i].test);
+    row.appendChild(celda);
+
     return row;
 }
 
@@ -181,12 +184,19 @@ function postGetDevices(){
 
 function postGetVulnerables(){
   putLoadder();
-  $.post("/play",{},  
+  form ={};
+  form.user= $('#user').val();
+  form.pass= $('#pass').val();
+
+  console.log(form);
+  $.post("/play",{form},  
     function(data, status){
       removeLoader();
-      text = '<h6> Se han recuperado <h4>'+data.length +'</h4> dispositivos vulnerables</h6>'
+      $( "#pre" ).remove();
+      $( "#post" ).show();
+      text = '<h6> Se han recuperado <h4>'+data.num +'</h4> dispositivos vulnerables</h6>'
       $('#result').append(text);
      
-      console.log("Vulnerables: " + data + "\nStatus: " + status);
+      //console.log("Vulnerables: " + data + "\nStatus: " + status);
   });
 }
