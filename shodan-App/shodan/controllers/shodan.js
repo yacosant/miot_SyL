@@ -17,7 +17,7 @@ var ObjectVulnerable = require('../../mongodb/models/vulnerable.js');
 //->>comprobar si el _id se obtiene en los persons de getAll.
 
 exports.get = function (req, res) {
-  var filtro = 'luci country:ES';
+  var filtro =config.filtro;
     const searchOpts = {
         facets: 'port:100,country:100',
         minify: true,

@@ -1,3 +1,4 @@
 {
-    "SHODAN-API-KEY": ""
+    "SHODANAPIKEY": "",
+    "filtro":  "luci country:ES"
 }

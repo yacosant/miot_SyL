@@ -159,6 +159,26 @@ function loadListVul(){
  });
 }
 
+function loadListTypes(){
+  putLoadder();
+  $.get("http://"+location.host+"/data/types", function (data, status) {
+    types = data;
+  
+  var selector = (document.getElementById('types'));
+
+  var option = document.createElement("option");
+ 
+
+  for (var i = 0;  i<types.length; i++) {
+    option = document.createElement("option");
+    option.text = types[i];
+    option.value = types[i];
+    selector.appendChild(option);
+  }
+  removeLoader();
+ });
+}
+
 function putLoadder(){
   $('#centro').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
 }
