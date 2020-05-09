@@ -25,7 +25,21 @@
       <h4 class="center-align"> Obtener lista de dispositivos </h4>
     </div>
     <div id='centro'></div>
-    <div class="center-align">
+
+    <div id='pre' class="center-align">
+           
+      <form class="form-inline" action="postGetDevices()">
+        <div class="form-group">
+          <label>Consulta:</label>
+          <input type="text" class="form-control" id="consulta" style="width: 300px;"  placeholder="luci country:ES">
+        </div>
+    
+        <button type="submit" class="btn btn-primary black">Pedir a Shodan</button>
+      </form>
+      
+      
+    </div>
+    <div id='post' class="center-align">
       <h6 id='result' class="center-align"></h6>
 
       <a href="/list" class="center-align black btn btn-primary btn-lg active" role="button" aria-pressed="true">Ir a listado completo</a>
@@ -44,6 +58,7 @@
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
+      $('#pre').hide();//futuras iteraciones
       postGetDevices();
     });
 

@@ -9,7 +9,8 @@ var data_schema =  mongoose.Schema({
   timestamp_shodan: Date,
   type: String,
   tried: Boolean,
-  vulnerable: Boolean
+  vulnerable: Boolean,
+  test : Boolean
 }, {collection: 'data'});
 
 module.exports =  mongoose.model('dataModel', data_schema);

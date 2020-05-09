@@ -24,11 +24,27 @@
     <div class="form-head">
       <h4 class="center-align"> Obtener lista de vulnerables </h4>
     </div>
-    <div id='centro'></div>
+
+    <div id='pre' class="center-align">
+      <form class="form-inline"  action="javascript:postGetVulnerables()">
+        <div class="form-group">
+          <label>Usuario:</label>
+          <input type="text" class="form-control" id="user" style="width: 300px;"  value="root">
+          <br><label>Contraseña:</label>
+          <input type="text" class="form-control" id="pass" style="width: 300px;"  value="root">
+        </div>
+    
+        <button type="submit" class="btn btn-primary black">Lanzar ejecución</button>
+      </form>
+    </div>
+
     <div class="center-align">
+    <div id='post' class="center-align">
+
+      <div id='centro'></div>
       <h6 id='result' class="center-align"></h6>
 
-      <a href="/list" class="center-align black btn btn-primary btn-lg active" role="button" aria-pressed="true">Ir a listado completo</a>
+      <a href="/vul" class="center-align black btn btn-primary btn-lg active" role="button" aria-pressed="true">Ir a listado completo de vulnerabilidades</a>
     </div>
   </main>
 
@@ -44,7 +60,7 @@
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
-      postGetVulnerables();
+      //postGetVulnerables();
     });
 
   </script>

@@ -41,6 +41,7 @@ exports.get = function (req, res) {
             toBD.tried = false;
             toBD.vulnerable = false;
             toBD.type=filtro;
+            //toBD.test=false;
             array.push(toBD);
           }
           res.json(array);
@@ -77,27 +78,29 @@ checkURL = function (ip, port, user, pass){
 
 }
 
-exports.play = function (req1, res1) {
+exports.play = function (req, res) {
   var lista;//recuperar de bd
   var cont=0;
   var ip;// = '192.168.1.91';
   var listaVuln= [];
+  var form= req.body.form;
+  console.log(form);
 
-  ObjectData.find({'ip_str':'192.168.1.91', 'tried': 'false' //, type!!!
+  ObjectData.find({'test': 'true' //, 'tried': 'false',  type!!!
   }, function (err, config) {
       if (err)
           res.send(err)
       lista =config;
-      console.log("[PLAY]Cargados dispositivos para escanear");
+      console.log("[PLAY] Cargados dispositivos para escanear");
  
 
   for(i=0; i<lista.length; i++){
 
     objeto = lista[i];
     
-    console.log("[PLAY]"+objeto.ip_str); //debug
+    console.log("[PLAY] Probando:"+objeto.ip_str); //debug
 
-    //if(checkURL(objeto.ip_str, objeto.puerto,'root', 'root')){
+    //if(checkURL(objeto.ip_str, objeto.puerto,req.user, req.pass)){
       cont++;
       //actualizar dispostivo
       objeto.vulnerable=true;
@@ -108,9 +111,10 @@ exports.play = function (req1, res1) {
       vuln.ip_str = objeto.ip_str;
       vuln.port = objeto.port;
       vuln.id_device = objeto._id;
-      vuln.type = "";//objeto.type;
-      vuln.user = "user";
-      vuln.pass = "pass";
+      vuln.type = objeto.type;
+      vuln.user = form.user;
+      vuln.pass = form.pass;
+      console.log(vuln);
       listaVuln.push(vuln);
     //}
 
@@ -120,11 +124,16 @@ exports.play = function (req1, res1) {
         console.log("[PLAY]"+objeto.ip_str + " actualizado");
     });
   }
+
   ObjectVulnerable.insertMany(listaVuln);
 
+  respuesta = {}
+  respuesta.code = 'ok';
+  respuesta.type= req.body.type;
+  respuesta.num=  cont;
   console.log(lista[0]);
-  var respuesta = "'code':'ok', 'type':"+ req.body.type+" 'num':" +cont;
-  res1.json(respuesta);
+  
+  res.json(respuesta);
   });
 }
 
