@@ -12,7 +12,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-validator": "^6.4.1",
+    "https": "^1.0.0",
     "mongoose": "^5.9.11",
-    "shodan-client": "^3.2.0"
+    "querystring": "^0.2.0",
+    "request": "^2.88.2",
+    "shodan-client": "^3.2.0",
+    "zombie": "^6.1.4"
   }
 }
