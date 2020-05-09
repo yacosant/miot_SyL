@@ -19,7 +19,7 @@ var ObjectVulnerable = require('../../mongodb/models/vulnerable.js');
 exports.get = function (req, res) {
   var filtro =config.filtro;
     const searchOpts = {
-        facets: 'port:100,country:100',
+        //facets: 'port:100,country:100',
         minify: true,
       };
 
@@ -79,12 +79,10 @@ checkURL = function (ip, port, user, pass){
 }
 
 exports.play = function (req, res) {
-  var lista;//recuperar de bd
+  var lista;
   var cont=0;
-  var ip;// = '192.168.1.91';
   var listaVuln= [];
   var form= req.body.form;
-  console.log(form);
 
   ObjectData.find({'test': 'true' //, 'tried': 'false',  type!!!
   }, function (err, config) {
@@ -100,7 +98,7 @@ exports.play = function (req, res) {
     
     console.log("[PLAY] Probando:"+objeto.ip_str); //debug
 
-    //if(checkURL(objeto.ip_str, objeto.puerto,req.user, req.pass)){
+    if(checkURL(objeto.ip_str, objeto.puerto,form.user, form.pass)){
       cont++;
       //actualizar dispostivo
       objeto.vulnerable=true;
@@ -116,9 +114,9 @@ exports.play = function (req, res) {
       vuln.pass = form.pass;
       console.log(vuln);
       listaVuln.push(vuln);
-    //}
+    }
 
-    //objeto.tried=true;
+    objeto.tried=true;
     objeto.save(function (err, objeto) {
         if (err) return console.error(err);
         console.log("[PLAY]"+objeto.ip_str + " actualizado");

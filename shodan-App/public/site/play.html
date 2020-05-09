@@ -43,7 +43,6 @@
 
       <div id='centro'></div>
       <h6 id='result' class="center-align"></h6>
-
       <a href="/vul" class="center-align black btn btn-primary btn-lg active" role="button" aria-pressed="true">Ir a listado completo de vulnerabilidades</a>
     </div>
   </main>
@@ -60,6 +59,7 @@
       $("#footer-loaded").load("footer.html");
       $('select').formSelect();
       $('.modal').modal();
+      $('#post').hide();
       //postGetVulnerables();
     });
 
