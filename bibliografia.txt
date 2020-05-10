@@ -49,4 +49,6 @@ https://stackoverflow.com/questions/20526757/how-to-send-post-request-from-expre
 	https://stackoverflow.com/questions/20433287/node-js-request-cert-has-expired
 	
 
-	
+MONGO
+https://docs.mongodb.com/manual/reference/method/
+https://mongoosejs.com/docs/queries.html
